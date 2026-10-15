@@ -79,6 +79,11 @@ export interface MeetingAnalysis {
   analyzedAt: string;
   isPrecomputedFallback?: boolean;
   fallbackNotice?: string;
+  meetingContext?: {
+    isRelated: boolean;
+    parentMeetingTitle?: string;
+    seriesName?: string;
+  };
   metrics: {
     wordCount: number;
     readingTimeOriginalMinutes: number;

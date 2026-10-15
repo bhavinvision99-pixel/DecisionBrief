@@ -182,16 +182,38 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-16">
+      {/* Mandatory Manager Verification Disclaimer */}
+      <div className="p-4 rounded-xl bg-amber-50 border-2 border-amber-400 text-amber-950 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+          <div className="space-y-0.5">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-amber-900">
+              Mandatory Manager Verification Required
+            </h4>
+            <p className="text-xs text-amber-900 leading-relaxed font-medium">
+              All summaries, decision statuses, and action ownership tags are synthetic AI suggestions.
+              The manager retains ultimate accountability and must verify all assertions against the
+              supporting transcript evidence before approving commitments.
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="text-[11px] font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded border border-amber-300">
+            Human-in-the-Loop Enforced
+          </span>
+        </div>
+      </div>
+
       {/* Top Precomputed / Live Analysis Notice */}
       {meeting.isPrecomputedFallback && (
-        <div className="p-3 bg-amber-50 border border-amber-300 rounded-lg flex items-center justify-between text-xs text-amber-900">
+        <div className="p-3 bg-slate-50 border border-slate-300 rounded-lg flex items-center justify-between text-xs text-slate-800">
           <div className="flex items-center gap-2">
-            <Info className="w-4 h-4 text-amber-600 shrink-0" />
+            <Info className="w-4 h-4 text-teal-600 shrink-0" />
             <span>
-              <strong>Notice:</strong> This analysis was precomputed from the synthetic Corvane demo dataset (offline mode). It demonstrates identical behavioural safeguards without sending network requests.
+              <strong>Demonstration Dataset:</strong> This brief was derived from the Corvane Group synthetic benchmark to illustrate behavioural safeguards.
             </span>
           </div>
-          <span className="font-mono text-[10px] bg-amber-200/80 px-2 py-0.5 rounded font-semibold">
+          <span className="font-mono text-[10px] bg-slate-200 px-2 py-0.5 rounded font-semibold text-slate-700">
             SYNTHETIC DEMO
           </span>
         </div>
@@ -242,13 +264,22 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
       <section className="bg-white rounded-xl border border-slate-200 shadow-xs p-6 space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-100 pb-4">
           <div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-2 py-0.5 rounded border border-teal-200">
                 Executive Synthesis
               </span>
               <span className="text-xs text-slate-500">
                 {meeting.date} • {meeting.participants.length} Participants
               </span>
+              {meeting.meetingContext?.isRelated ? (
+                <span className="text-[11px] font-semibold text-teal-800 bg-teal-100/70 px-2 py-0.5 rounded border border-teal-300">
+                  Follow-Up: {meeting.meetingContext.parentMeetingTitle || 'Ongoing Series'}
+                </span>
+              ) : (
+                <span className="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                  Standalone Meeting
+                </span>
+              )}
             </div>
             <h1 className="text-2xl font-bold text-slate-900 tracking-tight mt-1">
               Your meeting in 60 seconds

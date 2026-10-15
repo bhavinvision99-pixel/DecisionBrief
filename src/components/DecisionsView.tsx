@@ -115,6 +115,19 @@ export const DecisionsView: React.FC<DecisionsViewProps> = ({
         </div>
       </div>
 
+      {/* Mandatory Manager Verification Disclaimer */}
+      <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-300 text-amber-950 flex items-start sm:items-center justify-between gap-3 text-xs">
+        <div className="flex items-start gap-2.5">
+          <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+          <p className="leading-relaxed">
+            <strong className="text-amber-900">Governance Verification Rule:</strong> DecisionBrief extracts both agreed and tentative discussions. The manager must independently confirm decisions against transcript quotations prior to authorising expenditures or executing operational changes.
+          </p>
+        </div>
+        <span className="hidden sm:inline-block px-2 py-0.5 rounded bg-amber-200/80 text-amber-900 font-bold text-[10px] shrink-0">
+          Oversight Enforced
+        </span>
+      </div>
+
       {/* Search Input */}
       <div className="relative">
         <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />

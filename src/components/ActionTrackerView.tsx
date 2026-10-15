@@ -178,6 +178,19 @@ export const ActionTrackerView: React.FC<ActionTrackerViewProps> = ({
         </div>
       </div>
 
+      {/* Mandatory Manager Verification Disclaimer */}
+      <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-300 text-amber-950 flex items-start sm:items-center justify-between gap-3 text-xs">
+        <div className="flex items-start gap-2.5">
+          <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+          <p className="leading-relaxed">
+            <strong className="text-amber-900">Accountability Verification Rule:</strong> DecisionBrief identifies suggested or missing owners. Tasks must not be delegated to team members automatically without explicit manager review and confirmation of scope and deadlines.
+          </p>
+        </div>
+        <span className="hidden sm:inline-block px-2 py-0.5 rounded bg-amber-200/80 text-amber-900 font-bold text-[10px] shrink-0">
+          Accountability Enforced
+        </span>
+      </div>
+
       {/* Missing Owner Callout */}
       {missingOwnerCount > 0 && (
         <div className="p-4 rounded-xl bg-rose-50 border border-rose-300 flex items-center justify-between gap-4 text-xs text-rose-950">

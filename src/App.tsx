@@ -146,7 +146,10 @@ export default function App() {
           )}
 
           {activeTab === 'new-meeting' && (
-            <NewMeetingView onMeetingAnalyzed={handleMeetingAnalyzed} />
+            <NewMeetingView
+              onMeetingAnalyzed={handleMeetingAnalyzed}
+              existingMeetings={meetings}
+            />
           )}
 
           {activeTab === 'results' && activeMeeting && (

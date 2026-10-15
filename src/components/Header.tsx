@@ -23,6 +23,7 @@ export const Header: React.FC<HeaderProps> = ({
   safeguardsMode,
   onToggleSafeguards,
   onOpenReflectivePrompt,
+  onNavigateTab,
 }) => {
   return (
     <header className="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-xs">
@@ -87,8 +88,18 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </div>
 
-        {/* Right: Reflective Prompt Trigger & Manager Profile */}
+        {/* Right: Upload Transcript Button, Reflective Prompt Trigger & Manager Profile */}
         <div className="flex items-center gap-2 sm:gap-3">
+          <button
+            onClick={() => onNavigateTab('new-meeting')}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition-all shadow-2xs hover:shadow-xs active:scale-98"
+            title="Upload a new meeting transcript (standalone or series follow-up)"
+          >
+            <span className="text-sm font-bold leading-none">+</span>
+            <span className="hidden sm:inline">Upload Transcript</span>
+            <span className="sm:hidden">Upload</span>
+          </button>
+
           <button
             onClick={onOpenReflectivePrompt}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-teal-50 hover:bg-teal-100 border border-teal-300 text-teal-900 text-xs font-semibold transition-all shadow-2xs hover:shadow-xs active:scale-98"
@@ -100,6 +111,15 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           <div className="h-5 w-px bg-slate-200 mx-1 hidden lg:block" />
+
+          {/* Verification Badge */}
+          <div
+            className="hidden lg:flex items-center gap-1.5 px-2 py-1 rounded bg-amber-50 border border-amber-200 text-amber-900 text-[11px] font-semibold"
+            title="Governance Notice: AI outputs require human verification prior to action"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+            <span>Manager Audit Required</span>
+          </div>
 
           {/* Overloaded Manager Profile Pill */}
           <div className="flex items-center gap-2 pl-1 pr-2 py-1 rounded-md hover:bg-slate-50 transition-colors cursor-pointer border border-transparent hover:border-slate-200">

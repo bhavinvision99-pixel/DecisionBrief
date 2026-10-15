@@ -274,6 +274,7 @@ ${transcript}`;
         whyItMatters: q.whyItMatters || '',
         answered: false,
       })),
+      meetingContext: req.body.meetingContext || { isRelated: false },
       analyzedAt: new Date().toISOString(),
       isPrecomputedFallback: false,
       metrics: {

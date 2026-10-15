@@ -80,10 +80,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
           >
             <div className="flex items-center gap-2.5">
               <PlusCircle className="w-4 h-4" />
-              <span>New Meeting</span>
+              <span>Upload Transcript</span>
             </div>
             <span className="text-[10px] bg-teal-950 text-teal-300 px-1.5 py-0.5 rounded font-mono border border-teal-800/50">
-              Paste/Demo
+              New
             </span>
           </button>
 

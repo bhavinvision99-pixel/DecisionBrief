@@ -78,9 +78,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           <button
             onClick={() => onNavigateTab('new-meeting')}
             className="px-4 py-2 bg-teal-700 hover:bg-teal-800 text-white rounded-lg text-xs font-bold transition-all shadow-sm flex items-center gap-1.5"
+            title="Upload a new transcript (standalone or related to an ongoing series)"
           >
             <PlusCircle className="w-4 h-4" />
-            Analyse New Meeting
+            Upload New Transcript
           </button>
           <button
             onClick={onOpenReflectivePrompt}
@@ -90,6 +91,19 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             Reflective Check
           </button>
         </div>
+      </div>
+
+      {/* Mandatory Manager Verification Disclaimer */}
+      <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-300 text-amber-950 flex items-start sm:items-center justify-between gap-3 text-xs">
+        <div className="flex items-start gap-2.5">
+          <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+          <p className="leading-relaxed">
+            <strong className="text-amber-900">Managerial Oversight Notice:</strong> All AI-generated briefs, decision classifications, and action item assignments are advisory. The manager is required to verify all extracted claims against the linked transcript evidence prior to executive sign-off.
+          </p>
+        </div>
+        <span className="hidden md:inline-block px-2 py-0.5 rounded bg-amber-200/80 text-amber-900 font-bold text-[10px] shrink-0">
+          Governance Required
+        </span>
       </div>
 
       {/* 4 Core Top Metrics */}
