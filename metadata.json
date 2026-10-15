@@ -1,0 +1,6 @@
+{
+  "name": "DecisionBrief — AI Meeting Intelligence",
+  "description": "AI meeting intelligence assistant for overloaded managers in professional services. Less meeting admin. Better decisions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
